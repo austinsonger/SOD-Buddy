@@ -26,7 +26,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Enforce Segregation of Duties
-      uses: austinsonger/SODBuddy@v0.0.1
+      uses: austinsonger/SegregationOfDuties/@v1.0.1
       with:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
 ```
