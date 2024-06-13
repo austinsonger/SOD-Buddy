@@ -1,7 +1,7 @@
 > [Not Production Ready]
 
 
-# Segregation of Duties (SOD) Buddy Github Action
+# Segregation of Duties (SODBuddy) Github Action
 
 > This GitHub Action enforces segregation of duties by checking the CODEOWNERS file and ensuring that no committer can approve or merge their own code.
 
