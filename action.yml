@@ -1,13 +1,17 @@
 name: 'SODBuddy'
 description: 'Enforces segregation of duties by checking CODEOWNERS file.'
+branding:
+  icon: 'heart'
+  color: 'red'
 inputs:
-  GITHUB_TOKEN:
-    description: 'GitHub token'
+  github-token:
+    description: 'GitHub token to use for authentication'
+    required: true
+    default: ${{ github.token }}
+  codeowners-file:
+    description: 'Path to the CODEOWNERS file'
     required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'
-
-branding:
-  icon: 'shield'
-  color: 'blue'
+    
