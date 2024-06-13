@@ -38,7 +38,7 @@ jobs:
 
 ### CODEOWNERS
 
-The CODEOWNERS.md file should follow this format:
+The CODEOWNERS file should follow this format:
 
 ```
 @username1,1
