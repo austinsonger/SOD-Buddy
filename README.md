@@ -1,4 +1,6 @@
-# SODBuddy
+> [Not Production Ready]
+> 
+# Segregation of Duties (SOD) Buddy Github Action
 
 **Enforce Segregation of Duties GitHub Action**
 
