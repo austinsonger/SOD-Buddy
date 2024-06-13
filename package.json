@@ -4,13 +4,13 @@
   "version": "1.0.0",
   "author": "Austin Songer",
   "private": true,
-  "homepage": "https://github.com/austinsonger/test2",
+  "homepage": "https://github.com/austinsonger/SOD-Buddy",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/austinsonger/test2.git"
+    "url": "git+https://github.com/austinsonger/SOD-Buddy.git"
   },
   "bugs": {
-    "url": "https://github.com/austinsonger/test2/issues"
+    "url": "https://github.com/austinsonger/SOD-Buddy/issues"
   },
   "keywords": [
     "github",
