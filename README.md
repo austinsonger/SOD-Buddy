@@ -99,6 +99,6 @@ Therefore, @username1 is assigned as the new approver.
 ```
 
 - `@username2`, `@username3`, and `@username4` are Primary CODEOWNERS (assigned 0).
-- `@username1`, `@username5`, and `@username6` are Backup CODEOWNERS (assigned 1).
+- `@username1`, `@username5`, and `@username6` are Secondary CODEOWNERS (assigned 1).
 
 
