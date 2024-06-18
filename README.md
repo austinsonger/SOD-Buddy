@@ -3,7 +3,7 @@
 
 # Segregation of Duties (SODBuddy) Github Action
 
-> This GitHub Action enforces segregation of duties by checking the CODEOWNERS file and ensuring that no committer can approve or merge their own code.
+> This GitHub Action enforces segregation of duties by checking the APPROVER file and ensuring that no committer can approve or merge their own code.
 
 ## Usage
 
@@ -35,23 +35,23 @@ jobs:
 
 -------
 
-### CODEOWNERS
+### APPROVER
 
-The CODEOWNERS file should follow this format:
+The APPROVER file should follow this format:
 
 ```
-@username1,1
-@username2,0
-@username3,0
-@username4,0
-@username5,1
-@username6,1
+* @username1,1
+* @username2,0
+* @username3,0
+* @username4,0
+* @username5,1
+* @username6,1
 ```
 
 ##### Hierarchy
 
-- Users assigned 0 are Primary CODEOWNERS.
-- Users assigned 1 are Backup CODEOWNERS.
+- Users assigned 0 are Primary APPROVER.
+- Users assigned 1 are Secondary APPROVER.
 
 
 ### Action Logic
@@ -68,8 +68,8 @@ If any approver has also committed code to the pull request, they are removed fr
 
 #### 3. Find Eligible Approver:
 
-The action then searches for a new approver in the CODEOWNERS.md file. It first checks the Primary CODEOWNERS (users assigned 0).
-If all Primary CODEOWNERS have committed code and are thus ineligible, the action moves on to check the Backup CODEOWNERS (users assigned 1).
+The action then searches for a new approver in the APPROVER.md file. It first checks the Primary APPROVER (users assigned 0).
+If all Primary APPROVER have committed code and are thus ineligible, the action moves on to check the Secondary APPROVER (users assigned 1).
 
 #### 4. Assign New Approver:
 
@@ -83,9 +83,9 @@ The first eligible user found (who has not committed code to the pull request) i
 - `@username4` cannot approve the pull request because they have at least one commit as part of the PR.
 - The action then checks the next Primary CODEOWNER: `@username2` (has at least one commit as part of the PR).
 - Then, `@username3` (has at least one commit as part of the PR).
-- All Primary CODEOWNERS are ineligible to approve the pull request because they have committed code.
+- All Primary APPROVER are ineligible to approve the pull request because they have committed code.
 
-The action then moves to the Backup CODEOWNERS:
+The action then moves to the Secondary APPROVER:
 - `@username1` is checked and found eligible (no commits in the PR).
 
 Therefore, @username1 is assigned as the new approver.
@@ -99,7 +99,7 @@ Therefore, @username1 is assigned as the new approver.
 @username6,1
 ```
 
-- `@username2`, `@username3`, and `@username4` are Primary CODEOWNERS (assigned 0).
-- `@username1`, `@username5`, and `@username6` are Secondary CODEOWNERS (assigned 1).
+- `@username2`, `@username3`, and `@username4` are Primary APPROVER (assigned 0).
+- `@username1`, `@username5`, and `@username6` are Secondary APPROVER (assigned 1).
 
 
