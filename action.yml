@@ -1,17 +1,22 @@
-name: 'SODBuddy'
-description: 'Enforces segregation of duties by checking CODEOWNERS file.'
-branding:
-  icon: 'heart'
-  color: 'red'
+name: "Segregation of Duties (SOD) Buddy"
+description: "Ensures segregation of duties by enforcing approval rules based on the APPROVER files."
+author:
 inputs:
-  github-token:
-    description: 'GitHub token to use for authentication'
+  token:
+    description: "GitHub token"
     required: true
-    default: ${{ github.token }}
-  codeowners-file:
-    description: 'Path to the CODEOWNERS file'
+  repo:
+    description: "Repository name"
+    required: true
+  owner:
+    description: "Repository owner"
+    required: true
+  pull_number:
+    description: "Pull request number"
     required: true
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
-    
+  using: "node12"
+  main: "index.js"
+branding:
+  icon: "shield"
+  color: "blue"
